@@ -1,0 +1,11 @@
+{
+  "name": "url-shortener-api",
+  "version": "1.0.0",
+  "description": "This project contains url shortener apis",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pranav Thaivalappil",
+  "license": "ISC"
+}
