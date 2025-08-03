@@ -1,0 +1,19 @@
+### Test Root Endpoint
+GET http://localhost:5001/
+
+### Test with custom port (if different)
+GET http://localhost:3000/
+
+### Test POST request (for future URL shortening)
+POST http://localhost:5001/shorten
+Content-Type: application/json
+
+{
+  "originalUrl": "https://google.com"
+}
+
+### Test GET with short ID (for future redirects)
+GET http://localhost:5001/abc123
+
+### Test stats endpoint (for future analytics)
+GET http://localhost:5001/stats/abc123 
