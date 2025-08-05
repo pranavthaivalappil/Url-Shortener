@@ -13,7 +13,7 @@ const FormContainer = ({ updateReloadState }: FormContainerProps) => {
         e.preventDefault();
         setIsLoading(true);
         try {
-            await axios.post("http://localhost:5001/api/shortUrl", {
+            await axios.post("https://url-shortener-pranav.vercel.app/api/shortUrl", {
                 fullUrl: fullUrl,
             });
             setFullUrl("");

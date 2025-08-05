@@ -14,7 +14,7 @@ const Container = () => {
 
     const fetchUrls = async () => {
         try {
-            const response = await axios.get("http://localhost:5001/api/shortUrl");
+            const response = await axios.get("https://url-shortener-pranav.vercel.app/api/shortUrl");
             setData(response.data);
         } catch (error) {
             console.log(error);

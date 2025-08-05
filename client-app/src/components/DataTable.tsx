@@ -20,7 +20,7 @@ const DataTable = ({ data, updateReloadState }: DataTableProps) => {
                     </td>
                     <td className="px-6 py-3 text-xs text-gray-700 uppercase">
                         <a
-                            href={`http://localhost:5001/api/shortUrl/${item.shortUrl}`}
+                            href={`https://url-shortener-pranav.vercel.app/api/shortUrl/${item.shortUrl}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline"
@@ -54,7 +54,7 @@ const DataTable = ({ data, updateReloadState }: DataTableProps) => {
     };
 
     const copyToClipboard = (shortUrl: string) => {
-        const fullShortUrl = `http://localhost:5001/api/shortUrl/${shortUrl}`;
+        const fullShortUrl = `https://url-shortener-pranav.vercel.app/api/shortUrl/${shortUrl}`;
         navigator.clipboard.writeText(fullShortUrl);
         setCopySuccess("Copied!");
         setTimeout(() => setCopySuccess(""), 2000);
@@ -62,7 +62,7 @@ const DataTable = ({ data, updateReloadState }: DataTableProps) => {
 
     const deleteUrl = async (id: string) => {
         try {
-            await axios.delete(`http://localhost:5001/api/shortUrl/${id}`);
+            await axios.delete(`https://url-shortener-pranav.vercel.app/api/shortUrl/${id}`);
             updateReloadState();
         } catch (error) {
             console.log(error);
