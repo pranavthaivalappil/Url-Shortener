@@ -23,3 +23,6 @@ app.use("/api/",shortUrl);
 app.listen(port, () => {
   console.log(`Server started successfully on port: ${port}`);
 });
+
+// Export for Vercel
+module.exports = app;
