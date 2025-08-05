@@ -1,30 +1,20 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "client-app/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    },
-    {
-      "src": "server-app/api/index.ts",
-      "use": "@vercel/node"
+  "buildCommand": "cd client-app && npm install && npm run build",
+  "outputDirectory": "client-app/dist",
+  "functions": {
+    "server-app/api/index.ts": {
+      "runtime": "@vercel/node"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "server-app/api/index.ts"
-    },
-    {
-      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
-      "dest": "client-app/dist/$1"
+      "dest": "/server-app/api/index.ts"
     },
     {
       "src": "/(.*)",
-      "dest": "client-app/dist/index.html"
+      "dest": "/index.html"
     }
   ]
 }
