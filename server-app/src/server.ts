@@ -55,9 +55,13 @@ app.get("/api/health", (req, res) => {
 
 app.use("/api/",shortUrl);
 
-app.listen(port, () => {
-  console.log(`Server started successfully on port: ${port}`);
-});
+// Only start server locally, not in serverless environment
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+    console.log(`Server started successfully on port: ${port}`);
+  });
+}
 
-// Export for Vercel
+// Export for Vercel - both formats for compatibility
 module.exports = app;
+export default app;
