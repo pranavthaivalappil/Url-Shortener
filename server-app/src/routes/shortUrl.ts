@@ -1,12 +1,12 @@
 import express from "express";
-import { createUrl, deleteUrl, getALLUrl, getUrl } from "../controllers/shortUrl";
+import { createUrl, deleteUrl, getAllUrl, getUrl } from "../controllers/shortUrl";
 
 const router = express.Router();
 
-router.post("/shortUrl",createUrl);
-router.get("/shortUrl",getALLUrl);
-router.get("/shortUrl",getUrl);
-router.delete("/shortUrl",deleteUrl);
+router.post("/shortUrl", createUrl);
+router.get("/shortUrl", getAllUrl);
+router.get("/shortUrl/:id", getUrl);
+router.delete("/shortUrl/:id", deleteUrl);
 
 export default router;
 
