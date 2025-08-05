@@ -47,7 +47,7 @@ app.get("/api/health", (req, res) => {
         timestamp: new Date().toISOString(),
         env: {
             nodeEnv: process.env.NODE_ENV,
-            hasConnectionString: !!process.env.CONNECTION_STRING,
+            hasConnectionString: !!(process.env.MONGODB_URL || process.env.CONNECTION_STRING),
             port: process.env.PORT || 5001
         }
     });
