@@ -1,19 +1,16 @@
-### Test Root Endpoint
-GET http://localhost:5001/
-
-### Test with custom port (if different)
-GET http://localhost:3000/
-
-### Test POST request (for future URL shortening)
-POST http://localhost:5001/shorten
+### Create a short URL
+POST http://localhost:5001/api/shortUrl
 Content-Type: application/json
 
 {
-  "originalUrl": "https://google.com"
+    "fullUrl": "https://www.example.com"
 }
 
-### Test GET with short ID (for future redirects)
-GET http://localhost:5001/abc123
+### Get all URLs
+GET http://localhost:5001/api/shortUrl
 
-### Test stats endpoint (for future analytics)
-GET http://localhost:5001/stats/abc123 
+### Access a short URL (replace 'abc123' with actual shortUrl)
+GET http://localhost:5001/api/shortUrl/abc123
+
+### Delete a URL (replace with actual _id)
+DELETE http://localhost:5001/api/shortUrl/507f1f77bcf86cd799439011
