@@ -16,6 +16,7 @@ export const createUrl = async (
             res.status(201).json(shortUrl);
         }
     } catch (error) {
+        console.error("Create URL error:", error);
         res.status(500).json({ message: "Something went wrong!" });
     }
 };
@@ -28,6 +29,7 @@ export const getAllUrl = async (
         const shortUrls = await urlModel.find().sort({ createdAt: -1 });
         res.status(200).json(shortUrls);
     } catch (error) {
+        console.error("Create URL error:", error);
         res.status(500).json({ message: "Something went wrong!" });
     }
 };
@@ -46,6 +48,7 @@ export const getUrl = async (
             res.redirect(`${shortUrl.fullUrl}`);
         }
     } catch (error) {
+        console.error("Create URL error:", error);
         res.status(500).json({ message: "Something went wrong!" });
     }
 };
@@ -62,6 +65,7 @@ export const deleteUrl = async (
             res.status(200).json({ message: "URL deleted successfully!" });
         }
     } catch (error) {
+        console.error("Create URL error:", error);
         res.status(500).json({ message: "Something went wrong!" });
     }
 };

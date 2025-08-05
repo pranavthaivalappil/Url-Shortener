@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const connectDb = async () => {
     try {
         // Check if already connected
-        if (mongoose.connections[0].readyState) {
+        if (mongoose.connections[0]?.readyState) {
             console.log("Database already connected");
             return;
         }
@@ -21,7 +21,7 @@ const connectDb = async () => {
         );
     } catch(error) {
         console.error("Database connection error:", error);
-        throw error; // Don't exit process in serverless environment
+        throw error instanceof Error ? error : new Error('Database connection failed');
     }
 };
 

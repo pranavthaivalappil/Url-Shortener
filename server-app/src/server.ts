@@ -16,9 +16,10 @@ app.use("/api/shortUrl", async (req, res, next) => {
         next();
     } catch (error) {
         console.error("Database connection failed:", error);
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
         res.status(500).json({ 
             message: "Database connection failed",
-            error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
+            error: process.env.NODE_ENV === 'development' ? errorMessage : 'Internal server error'
         });
     }
 });
